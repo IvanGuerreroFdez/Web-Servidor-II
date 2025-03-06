@@ -150,6 +150,11 @@ api_key: Api-publica-123
 }
 
 ###
-POST 
+GET http://localhost:3000/api/tracks
 Content-Type: application/json
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2M5NjAzOTI2Y2RkN2NmODZmMzU1N2UiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQxMjUzNDIyLCJleHAiOjE3NDEyNjA2MjJ9.S8P4YIyoWzu2NCIIhnO6mpmBhWtZb8xPBGXfjZFHz1U
+
+###
+GET http://localhost:3000/api/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2M5NjAzOTI2Y2RkN2NmODZmMzU1N2UiLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNzQxMjUzNDIyLCJleHAiOjE3NDEyNjA2MjJ9.S8P4YIyoWzu2NCIIhnO6mpmBhWtZb8xPBGXfjZFHz1U

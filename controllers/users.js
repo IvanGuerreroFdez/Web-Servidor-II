@@ -2,7 +2,6 @@ const UserModel = require('../models/users.js')
 const { matchedData } = require('express-validator')
 const { handleHttpError } = require('../utils/handleError')
 
-
 const getItems = async (req, res) => {
     /*console.log(req);
     const data = await UserModel.find();
@@ -11,7 +10,7 @@ const getItems = async (req, res) => {
     try{
         const user = req.user
         const data = await UserModel.find({})
-        res.send(data, user)
+        res.send({data, user})
     } catch(err){
        //Si nos sirve el de por defecto que hemos establecido, no es necesario pasar el 403
         handleHttpError(res, 'ERROR_GET_ITEMS', 403) 

@@ -2,6 +2,8 @@ const express = require('express')
 const {getItem, getItems, updateItem, createItem, deleteItem} = require ('../controllers/users.js')
 const { validatorCreateItem } = require('../validators/users.js')
 const customHeader = require("../middleware/customHeader")
+const authMiddleware = require("../middleware/session.js")
+const checkRol = require("../middleware/rol.js")
 
 const userRouter = express.Router();
 
@@ -13,7 +15,9 @@ userRouter.put('/:email', (req, res) => {
     updateItem(req, res);
 });
 userRouter.delete('/:email', deleteItem);
-//userRouter.post("/", validatorCreateItem, createItem)
-userRouter.post("/", validatorCreateItem, customHeader, createItem)
+//userRouter.post("/", authMiddleware, validatorCreateItem, createItem)
+//userRouter.post("/", authMiddleware, validatorCreateItem, customHeader, createItem)
+userRouter.post("/", authMiddleware, checkRol(["admin"]), validatorCreateItem, createItem)
+userRouter.get("/", authMiddleware, getItems)
 
 module.exports = userRouter;
