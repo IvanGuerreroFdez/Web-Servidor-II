@@ -1,0 +1,155 @@
+###
+GET http://localhost:3000/api/tracks/
+
+###
+GET http://localhost:3000/api/tracks/1
+
+###
+POST http://localhost:3000/api/tracks/
+Content-Type: application/json
+
+{
+  "title": "Track EJEMPLO",
+  "artist": "pepe",
+  "album": "lopez",
+  "genre": "pop",
+  "releaseDate": "2021-01-01",
+  "duration": "23"
+}
+
+###
+PUT http://localhost:3000/api/tracks/1
+Content-Type: application/json
+
+{
+  "name": "Track EJEMPLO",
+  "duration": 99
+}
+
+###
+DELETE http://localhost:3000/api/tracks/1
+
+### TEACHER PART
+GET http://localhost:3000/api/users
+
+###
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "name": "Nuevo",
+    "email": "micrreo267@correo.es",
+    "age":37,
+    "password": "12345"
+}
+
+###
+PUT http://localhost:3000/api/users/micrreo2@correo.es
+Content-Type: application/json
+
+{
+    "name": "Marcos",
+    "email": "micrreo2@correo.es",
+    "age":37,
+    "password": "12345",
+    "role": "admin"
+}
+
+###
+DELETE http://localhost:3000/api/users/micrreo267@correo.es
+Content-Type: application/json
+
+### utilizando IPFS
+POST http://localhost:3000/api/storage HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary123
+
+--boundary123
+Content-Disposition: form-data; name="image"; filename="bici_lago.jpg"
+Content-Type: image/jpeg
+
+< ./bici_lago.jpg
+--boundary123--
+
+###
+POST http://localhost:3000/api/storage/local HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary123
+
+--boundary123
+Content-Disposition: form-data; name="image"; filename="bici_lago.jpg"
+Content-Type: image/jpeg
+
+< ./bici_lago.jpg
+--boundary123--
+
+###
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "age": 30,
+  "email": "johndoe4@example.com",
+  "password": "SecurePass123",
+  "role": "user"
+}
+
+###
+POST http://localhost:3000/api/users
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "name": "John Doe",
+  "age": 30,
+  "email": "johndoe102@example.com",
+  "password": "SecurePass123",
+  "role": "user"
+}
+
+###
+POST http://localhost:3000/api/tracks
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "name": "Stan Lee",
+  "album": "The Marshall Mathers LP",
+  "cover": "https://example.com/cover.jpg",
+  "artist": {
+    "name": "Eminem",
+    "nickname": "Slim Shady",
+    "nationality": "USA"
+  },
+  "duration": {
+    "start": 0,
+    "end": 404
+  },
+  "mediaId": "65f1234abcd5678ef9012345"
+}
+
+###
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "name": "Cani",
+  "age": 30,
+  "email": "algo200@ejemplo.com",
+  "password": "admin123"
+}
+
+### 
+POST http://localhost:3000/api/auth/login HTTP/1.1
+Content-Type: application/json
+api_key: Api-publica-123
+
+{
+  "email": "algo200@ejemplo.com",
+  "password": "admin123"
+}
+
+###
+POST 
+Content-Type: application/json
+Authorization: Bearer 
